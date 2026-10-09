@@ -1,0 +1,24 @@
+mainmenu "Sine wave UDP streaming test"
+
+config SINE_WIFI_SSID
+	string "Wi-Fi SSID"
+	default "Vodafone-8950"
+
+config SINE_WIFI_PSK
+	string "Wi-Fi password (WPA2-PSK)"
+	default "tApkgmpXsaRLpMs4"
+
+config SINE_DEST_IP
+	string "Destination (PC) IPv4 address"
+	default "192.168.1.100"
+
+config SINE_DEST_PORT
+	int "Destination UDP port"
+	default 5005
+
+config SINE_SAMPLES_PER_PKT
+	int "Samples per UDP packet"
+	default 64
+	range 1 350
+
+source "Kconfig.zephyr"

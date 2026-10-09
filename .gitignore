@@ -1,0 +1,38 @@
+# Zephyr / Nordic build outputs
+build/
+build_*/
+**/build/
+**/build_*/
+twister-out/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# IDE / editor
+.vscode/
+.idea/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Neural recordings and experimental data
+*.rhs
+*.rhd
+data/raw/
+data/processed/
+Scripts/extracted/
+
+# Temporary files
+*.log
+*.tmp
+
+# Secrets
+.env
+*.pem
+*.key
+secrets.conf
