@@ -11,4 +11,9 @@ project(neural_data_streaming)
 
 target_sources(app PRIVATE
  src/main.c
- src/wifi.c)
+ src/wifi.c
+ src/ns_flash.c)
+
+ target_include_directories(app PRIVATE
+    include
+)

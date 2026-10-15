@@ -1,4 +1,5 @@
 #include "wifi.h"
+#include "ns_flash.h"
 
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
@@ -10,12 +11,19 @@ LOG_MODULE_REGISTER(main, LOG_LEVEL_INF);
 int main(void)
 {
 
+	// Step 1) Initialise external flash
+	int err = ns_flash_init();
 
-	// Establish wifi connection
+	if (err) {
+		return 0;
+	}
+
+
+	// Step 2) Establish wifi connection
     wifi_init();
 	k_sleep(K_SECONDS(3));   //Magic number - works for now, need to replace with event driven timing
 
-    int err = wifi_connect();
+    err = wifi_connect();
     if (err) {
         LOG_ERR("main(): Wi-Fi connection request failed: %d", err);
         return err;
@@ -26,6 +34,7 @@ int main(void)
     LOG_INF("Wi-Fi connected successfully");
 
 
+	
 	//Testing UDP data sending abilities:
 	int sock = zsock_socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
