@@ -26,6 +26,7 @@ Desktop.ini
 data/raw/
 data/processed/
 Scripts/extracted/
+received_samples.npy
 
 # Temporary files
 *.log

@@ -71,3 +71,13 @@ int ns_flash_erase(uint32_t offset, size_t len);
 
 
 #endif /* FLASH_H */
+
+
+
+/**
+ * @brief Return number of bytes in external flash memory
+ * 
+ * 
+ * @return number of bytes
+ */
+size_t ns_flash_get_size(void);
