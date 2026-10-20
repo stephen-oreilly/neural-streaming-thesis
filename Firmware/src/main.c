@@ -1,6 +1,7 @@
 #include "wifi.h"
 #include "ns_flash.h"
 #include "ns_test_data.h"
+#include "ns_data_processing.h"
 
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
@@ -123,7 +124,7 @@ int main(void)
 
 
 	//Step 4) Read data from flash and send to receiver
-	uint8_t tx_buf[PACKET_BYTES];
+	uint16_t tx_buf[PACKET_BYTES];
 
 	for (uint32_t i = 0; i < N_PACKETS; i++) {
 
@@ -137,6 +138,9 @@ int main(void)
 			LOG_ERR("Flash read failed at packet %u", i);
 			break;
 		}
+
+		//Perform some placeholder operations on the data buffer
+		ns_processing_clip(tx_buf, SAMPLES_PER_PKT, (int16_t)25000);
 
 
 		ssize_t sent = zsock_sendto(sock,

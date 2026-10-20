@@ -1,5 +1,5 @@
-#ifndef FLASH_H
-#define FLASH_H
+#ifndef NS_FLASH_H
+#define NS_FLASH_H
 
 #include <stddef.h>
 #include <stdint.h>
@@ -70,7 +70,7 @@ int ns_flash_read(uint32_t offset, void *buffer, size_t len);
 int ns_flash_erase(uint32_t offset, size_t len);
 
 
-#endif /* FLASH_H */
+#endif /* NS_FLASH_H */
 
 
 

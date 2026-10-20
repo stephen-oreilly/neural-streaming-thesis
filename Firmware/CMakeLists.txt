@@ -13,7 +13,8 @@ target_sources(app PRIVATE
  src/main.c
  src/wifi.c
  src/ns_flash.c
- src/ns_test_data.c)
+ src/ns_test_data.c
+ src/ns_data_processing.c)
 
  target_include_directories(app PRIVATE
     include
